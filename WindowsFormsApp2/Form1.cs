@@ -23,7 +23,7 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH':'mm tt";
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm tt";
             foreach (string line in Read.read())
             {
                 TodosLoad.Add(line);
@@ -33,6 +33,20 @@ namespace WindowsFormsApp2
             {
                 dates.Add(line);
                 listBox1.Items.Add(line);
+            }
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (string line in File.ReadAllLines("dates.tds"))
+            {
+                string s1 = DateTime.Now.ToString();
+                string s2 = line;
+                if (s2 == s1)
+                {
+                    Console.WriteLine("Todo steht an");
+                }
             }
         }
 
@@ -55,12 +69,13 @@ namespace WindowsFormsApp2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length < 1){}
+            if (textBox1.Text.Length < 1) { }
             else
             {
                 string NewEntry = textBox1.Text;
                 checkedListBox1.Items.Add(NewEntry);
                 DateTime date = dateTimePicker1.Value;
+                date = date.AddSeconds(-date.Second);
                 dates.Add(Convert.ToString(date));
                 listBox1.Items.Add(date);
                 File.WriteAllLines("dates.tds", dates);

@@ -29,6 +29,7 @@ namespace WindowsFormsApp2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@ namespace WindowsFormsApp2
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -99,6 +101,7 @@ namespace WindowsFormsApp2
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Location = new System.Drawing.Point(353, 62);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(127, 20);
@@ -111,6 +114,11 @@ namespace WindowsFormsApp2
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(301, 160);
             this.listBox1.TabIndex = 7;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             // 
             // Form1
             // 
@@ -141,6 +149,7 @@ namespace WindowsFormsApp2
         public System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
